@@ -34,11 +34,11 @@
                 class="button-block"
                 (click)="agregar()"
             >
-                Guardar
+                Agregar item
             </button>
         </ion-card-content>
     </ion-card>
-    <ion-card>
+    <ion-card *ngIf="items.length > 0">
         <ion-card-header>
             <h3>Items agregados</h3>
         </ion-card-header>
@@ -57,6 +57,7 @@
                         outline
                         item-right
                         color="danger"
+                        (click)="borrar( i )"
                     >
                         <ion-icon
                             ios="ios-trash"
@@ -71,13 +72,15 @@
     <button
         ion-button
         icon-left
+        color="secondary"
         class="button-block"
+        (click)="guardarLista()"
     >
         <ion-icon
             ios="ios-add-circle"
             md="md-add-circle"
         ></ion-icon>
-        Agregar lista
+        Guardar lista
     </button>
 
 </ion-content>
